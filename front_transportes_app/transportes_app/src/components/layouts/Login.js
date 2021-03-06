@@ -4,7 +4,7 @@ import React, { useState } from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { verificarEmpleado } from "../../redux/actions/employeeAction";
 
-import { Redirect, useHistory } from "react-router-dom";
+import { Redirect } from "react-router-dom";
 
 const Login = () => {
   const dispatch = useDispatch();

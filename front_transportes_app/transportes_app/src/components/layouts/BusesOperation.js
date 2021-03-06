@@ -7,7 +7,7 @@ import {
   retornarBuses,
   modifBanderaListaBuses,
   eliminarBus,
-  buscarBus
+  buscarBus,
 } from "../../redux/actions/busAction";
 
 import { retornarFabricantes } from "../../redux/actions/makerAction";
@@ -33,10 +33,12 @@ const BusesOperation = () => {
     if (_banderalistabuses) {
       dispatch(modifBanderaListaBuses(false));
     }
+    // eslint-disable-next-line
   }, [_banderalistabuses === true]);
 
   useEffect(() => {
     dispatch(retornarFabricantes());
+    // eslint-disable-next-line
   }, []);
 
   const [modalShow, setModalShow] = useState(false);
@@ -119,7 +121,7 @@ const BusesOperation = () => {
       <ModalEditBus
         show={modalShowEdit}
         onHide={() => setModalShowEdit(false)}
-      ></ModalEditBus>
+      />
 
       <ModalAddBus show={modalShow} onHide={() => setModalShow(false)} />
     </div>

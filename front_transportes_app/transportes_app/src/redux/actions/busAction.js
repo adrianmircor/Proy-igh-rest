@@ -81,19 +81,18 @@ export function buscarBus(id_bus) {
 }
 
 export function actualizarBus(bus) {
-    return async (dispatch) => {
-      axios
-        .put("http://localhost:8080/api/v1/buses/edit", bus)
-        .then((res) => {
-          console.log("Edita el bus: ", res.data);
-          dispatch({
-            type: BANDERA_LISTAR_BUSES,
-            payload: true,
-          });
-        })
-        .catch((error) => {
-          console.log(error);
+  return async (dispatch) => {
+    axios
+      .put("http://localhost:8080/api/v1/buses/edit", bus)
+      .then((res) => {
+        console.log("Edita el bus: ", res.data);
+        dispatch({
+          type: BANDERA_LISTAR_BUSES,
+          payload: true,
         });
-    };
-  }
-  
+      })
+      .catch((error) => {
+        console.log(error);
+      });
+  };
+}

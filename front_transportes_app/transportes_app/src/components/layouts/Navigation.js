@@ -25,19 +25,14 @@ const Navigation = () => {
     <div>
       <nav>
         <div className="pag-principal contenedor-opcion">
-          <Link to="/main">
+          <Link to="/buses">
             <h5>TransportesApp</h5>
           </Link>
         </div>
         <div className="opciones">
           <div className="contenedor-opcion">
-            <Link to="/main/users">
+            <Link to="/buses">
               <h5>Buses</h5>
-            </Link>
-          </div>
-          <div className="contenedor-opcion">
-            <Link to="/main/vehicles">
-              <h5>Rutas</h5>
             </Link>
           </div>
         </div>

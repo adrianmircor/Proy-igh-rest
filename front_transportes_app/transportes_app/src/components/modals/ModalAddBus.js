@@ -1,9 +1,9 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 
 import { useSelector, useDispatch } from "react-redux";
 import { crearBus } from "../../redux/actions/busAction.js";
 
-import { Modal, Button } from "react-bootstrap";
+import { Modal } from "react-bootstrap";
 
 const ModalAddBus = (props) => {
   const dispatch = useDispatch();
@@ -39,6 +39,8 @@ const ModalAddBus = (props) => {
       id_fabricante: "1",
     });
   };
+
+
 
   return (
     <Modal

@@ -1,11 +1,9 @@
 import React, { useState, useEffect } from "react";
 
 import { useSelector, useDispatch } from "react-redux";
-import {
-  actualizarBus,
-} from "../../redux/actions/busAction.js";
+import { actualizarBus } from "../../redux/actions/busAction.js";
 
-import { Modal, Button } from "react-bootstrap";
+import { Modal } from "react-bootstrap";
 
 const ModalEditBus = (props) => {
   const dispatch = useDispatch();
@@ -30,12 +28,33 @@ const ModalEditBus = (props) => {
   }); */
 
   const [bus, setBus] = useState({
-    id_bus:"",
-    placa:"",
-    cap_estandar:"",
-    cap_premium:"",
-    id_fabricante:""
+    id_bus: "",
+    placa: "",
+    cap_estandar: "",
+    cap_premium: "",
+    id_fabricante: "",
   });
+
+  useEffect(() => {
+    const {
+      id_bus,
+      placa,
+      cap_estandar,
+      cap_premium,
+      id_fabricante,
+    } = _busseleccionado;
+
+    setBus({
+      ...bus,
+      id_bus,
+      placa,
+      cap_estandar,
+      cap_premium,
+      id_fabricante,
+    });
+    //Ejecutar cada vez que se abra el modal y haya cambio en _busseleccionado
+    // eslint-disable-next-line
+  }, [props.show === true && _busseleccionado]);
 
   const handleChange = (e) => {
     setBus({
@@ -44,8 +63,8 @@ const ModalEditBus = (props) => {
     });
     console.log("Modif: ", bus);
   };
-  
-  //const { placa, cap_estandar, cap_premium, id_fabricante } = bus;
+
+  const { placa, cap_estandar, cap_premium, id_fabricante } = bus;
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -75,7 +94,7 @@ const ModalEditBus = (props) => {
                 <input
                   type="text"
                   name="placa"
-                  value={_busseleccionado.placa}
+                  value={placa}
                   onChange={handleChange}
                 />
               </div>
@@ -84,7 +103,7 @@ const ModalEditBus = (props) => {
                 <input
                   type="text"
                   name="cap_estandar"
-                  value={_busseleccionado.cap_estandar}
+                  value={cap_estandar}
                   onChange={handleChange}
                 />
               </div>
@@ -93,7 +112,7 @@ const ModalEditBus = (props) => {
                 <input
                   type="text"
                   name="cap_premium"
-                  value={_busseleccionado.cap_premium}
+                  value={cap_premium}
                   onChange={handleChange}
                 />
               </div>
@@ -106,7 +125,7 @@ const ModalEditBus = (props) => {
                   <select
                     name="id_fabricante"
                     onChange={handleChange}
-                    value={_busseleccionado.id_fabricante}
+                    value={id_fabricante}
                   >
                     {_listafabricantes.map((el, key) => (
                       <option key={key} value={el.id_fabricante}>

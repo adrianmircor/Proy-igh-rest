@@ -3,9 +3,16 @@ import { LISTAR_BUSES, BANDERA_LISTAR_BUSES, SELECCION_BUS } from "../types";
 const initialState = {
   listabuses: null,
   banderalistabuses: false,
-  busseleccionado: null,
+  busseleccionado: {
+    id_bus:"",
+    placa:"",
+    cap_estandar:"",
+    cap_premium:"",
+    id_fabricante:""
+  },
 };
 
+/* eslint import/no-anonymous-default-export: [2, {"allowAnonymousFunction": true}] */
 export default function (state = initialState, action) {
   switch (action.type) {
     case LISTAR_BUSES:
